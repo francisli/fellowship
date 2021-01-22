@@ -12,7 +12,6 @@ import Home from './Home';
 import Login from './Login';
 import Passwords from './Passwords';
 import Register from './Register';
-import SectionItems from './SectionItems';
 
 function App() {
   return (
@@ -34,9 +33,6 @@ function App() {
               <Register />
             </Route>
           )}
-          <AuthProtectedRoute path="/sectionItems">
-            <SectionItems />
-          </AuthProtectedRoute>
         </Switch>
       </Router>
     </AuthContextProvider>
