@@ -45,8 +45,30 @@ function AuthProtectedRoute({ children, ...rest }) {
   );
 }
 
+function AdminProtectedRoute({ children, ...rest }) {
+  const authContext = useAuthContext();
+  return (
+    <Route
+      {...rest}
+      render={({ location }) =>
+        authContext.user?.isAdmin ? (
+          children
+        ) : (
+          <Redirect
+            to={{
+              pathname: "/login",
+              state: { from: location }
+            }}
+          />
+        )
+      }
+    />
+  );
+}
+
 export {
   useAuthContext,
   AuthContextProvider,
-  AuthProtectedRoute
+  AuthProtectedRoute,
+  AdminProtectedRoute
 };

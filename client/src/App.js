@@ -6,7 +6,8 @@ import {
 
 import './App.scss';
 
-import {AuthContextProvider, AuthProtectedRoute} from './AuthContext';
+import Admin from './Admin';
+import {AuthContextProvider, AdminProtectedRoute} from './AuthContext';
 import Header from './Header';
 import Home from './Home';
 import Login from './Login';
@@ -33,6 +34,9 @@ function App() {
               <Register />
             </Route>
           )}
+          <AdminProtectedRoute path="/admin">
+            <Admin />
+          </AdminProtectedRoute>
         </Switch>
       </Router>
     </AuthContextProvider>

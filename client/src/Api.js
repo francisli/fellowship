@@ -28,6 +28,20 @@ const Api = {
       return instance.post('/api/auth/register', data);
     }
   },
+  cohorts: {
+    index() {
+      return instance.get('/api/cohorts');
+    },
+    create(data) {
+      return instance.post('/api/cohorts', data);
+    },
+    get(id) {
+      return instance.get(`/api/cohorts/${id}`);
+    },
+    update(id, data) {
+      return instance.patch(`/api/cohorts/${id}`, data);
+    }
+  },
   passwords: {
     reset(email) {
       return instance.post('/api/passwords', {email});

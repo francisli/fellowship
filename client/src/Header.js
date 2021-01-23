@@ -40,9 +40,16 @@ function Header() {
             </li>
             <div className="flex-grow-1 d-flex justify-content-end">
               {user && (
-                <li className="nav-item">
-                  <a className="nav-link" href="/logout" onClick={onLogout}>Log out</a>
-                </li>)}
+                <>
+                  {user.isAdmin && (
+                    <li className="nav-item">
+                      <Link className="nav-link" to="/admin">Admin</Link>
+                    </li>
+                  )}
+                  <li className="nav-item">
+                    <a className="nav-link" href="/logout" onClick={onLogout}>Log out</a>
+                  </li>
+                </>)}
               {!user && (
                 <li className="nav-item">
                   <Link className="nav-link" to="/login">Log in</Link>
