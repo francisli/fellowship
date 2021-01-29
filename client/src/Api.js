@@ -42,6 +42,24 @@ const Api = {
       return instance.patch(`/api/cohorts/${id}`, data);
     }
   },
+  meetings: {
+    index(cohortId) {
+      const params = {};
+      if (cohortId) {
+        params.cohortId = cohortId;
+      }
+      return instance.get('/api/meetings', {params});
+    },
+    create(data) {
+      return instance.post('/api/meetings', data);
+    },
+    get(id) {
+      return instance.get(`/api/meetings/${id}`);
+    },
+    update(id, data) {
+      return instance.patch(`/api/meetings/${id}`, data);
+    }
+  },
   passwords: {
     reset(email) {
       return instance.post('/api/passwords', {email});

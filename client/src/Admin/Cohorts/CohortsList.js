@@ -1,10 +1,10 @@
 import {useEffect, useState} from 'react';
 import {useHistory, useRouteMatch, Link} from 'react-router-dom';
 
-import '../Api';
-import Api from '../Api';
+import '../../Api';
+import Api from '../../Api';
 
-function Cohorts() {
+function CohortsList() {
   const history = useHistory();
   const {path} = useRouteMatch();
   const [cohorts, setCohorts] = useState([]);
@@ -51,4 +51,4 @@ function Cohorts() {
   );
 }
 
-export default Cohorts;
+export default CohortsList;
