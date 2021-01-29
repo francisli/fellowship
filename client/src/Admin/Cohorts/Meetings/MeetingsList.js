@@ -1,14 +1,12 @@
 import {useEffect, useState} from 'react';
 import {useHistory, useRouteMatch, Link, useLocation} from 'react-router-dom';
 
-import '../../Api';
-import Api from '../../Api';
+import Api from '../../../Api';
 
 function MeetingsList() {
   const history = useHistory();
-  const {path} = useRouteMatch();
-  const query = new URLSearchParams(useLocation().search);
-  const cohortId = query.get('cohortId');
+  const {url, params} = useRouteMatch();
+  const cohortId = params?.id;
   const [meetings, setMeetings] = useState([]);
 
   useEffect(function() {
@@ -16,14 +14,14 @@ function MeetingsList() {
   }, [cohortId]);
 
   function onClick(id) {
-    history.push(`${path}/${id}`);
+    history.push(`${url}/${id}`);
   }
 
   return (
     <>
       <h2>Meetings</h2>
       <div className="mb-3">
-        <Link className="btn btn-sm btn-outline-primary" to={`${path}/new?cohortId=${cohortId}`}>New</Link>
+        <Link className="btn btn-sm btn-outline-primary" to={`${url}/new`}>New</Link>
       </div>
       <div className="table-responsive">
         <table className="table table-hover">
@@ -34,7 +32,6 @@ function MeetingsList() {
               <th>Starts</th>
               <th>Ends</th>
               <th>Desc</th>
-              <th></th>
             </tr>
           </thead>
           <tbody>
@@ -45,9 +42,6 @@ function MeetingsList() {
                 <td>{m.startsAt}</td>
                 <td>{m.endsAt}</td>
                 <td>{m.desc}</td>
-                <td>
-                  <Link className="btn btn-sm btn-outline-primary" to={`${path}/${m.id}/edit`}>Edit</Link>
-                </td>
               </tr>            
             ))}
           </tbody>

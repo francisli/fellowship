@@ -1,9 +1,10 @@
 
-import {useRouteMatch, Switch} from 'react-router-dom';
+import {useRouteMatch, Redirect, Switch} from 'react-router-dom';
 
 import {AdminProtectedRoute} from '../../AuthContext';
 import CohortForm from './CohortForm';
 import CohortsList from './CohortsList';
+import Meetings from './Meetings';
 
 function Cohorts() {
   const {path} = useRouteMatch();
@@ -14,6 +15,12 @@ function Cohorts() {
       </AdminProtectedRoute>
       <AdminProtectedRoute path={`${path}/:id/edit`}>
         <CohortForm />
+      </AdminProtectedRoute>
+      <AdminProtectedRoute path={`${path}/:id/meetings`}>
+        <Meetings />
+      </AdminProtectedRoute>
+      <AdminProtectedRoute exact path={`${path}/:id`}>
+        <Redirect to={`${useRouteMatch(`${path}/:id`)?.url}/meetings`} />
       </AdminProtectedRoute>
       <AdminProtectedRoute exact path={path}>
         <CohortsList />

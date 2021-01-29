@@ -1,7 +1,7 @@
 import {useEffect, useState} from 'react';
 import {useParams, useRouteMatch, Link} from 'react-router-dom';
 
-import Api from '../../Api';
+import Api from '../../../Api';
 
 function Meetings() {
   const {id} = useParams();

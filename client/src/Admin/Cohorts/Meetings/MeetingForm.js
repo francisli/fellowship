@@ -3,9 +3,9 @@ import {useHistory, useLocation, useParams} from 'react-router-dom';
 import {StatusCodes} from 'http-status-codes';
 import classNames from 'classnames';
 
-import Api from '../../Api';
-import UnexpectedError from '../../UnexpectedError';
-import ValidationError from '../../ValidationError';
+import Api from '../../../Api';
+import UnexpectedError from '../../../UnexpectedError';
+import ValidationError from '../../../ValidationError';
 
 function MeetingForm() {
   const history = useHistory();
@@ -44,7 +44,7 @@ function MeetingForm() {
       } else {
         await Api.meetings.create(meeting);
       }
-      history.push(`/admin/meetings?cohortId=${meeting.CohortId}`);
+      history.push(`/admin/cohorts/${meeting.CohortId}/meetings/${meeting.id}`);
     } catch (error) {
       if (error.response?.status === StatusCodes.UNPROCESSABLE_ENTITY) {
         setError(new ValidationError(error.response.data));

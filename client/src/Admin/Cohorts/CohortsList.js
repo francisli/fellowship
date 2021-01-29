@@ -1,12 +1,11 @@
 import {useEffect, useState} from 'react';
 import {useHistory, useRouteMatch, Link} from 'react-router-dom';
 
-import '../../Api';
 import Api from '../../Api';
 
 function CohortsList() {
   const history = useHistory();
-  const {path} = useRouteMatch();
+  const {path, url} = useRouteMatch();
   const [cohorts, setCohorts] = useState([]);
 
   useEffect(function() {
@@ -14,14 +13,14 @@ function CohortsList() {
   }, []);
 
   function onClick(id) {
-    history.push(`${path}/${id}/edit`);
+    history.push(`${url}/${id}`);
   }
 
   return (
     <>
       <h2>Cohorts</h2>
       <div className="mb-3">
-        <Link className="btn btn-sm btn-outline-primary" to={`${path}/new`}>New</Link>
+        <Link className="btn btn-sm btn-outline-primary" to={`${url}/new`}>New</Link>
       </div>
       <div className="table-responsive">
         <table className="table table-hover">

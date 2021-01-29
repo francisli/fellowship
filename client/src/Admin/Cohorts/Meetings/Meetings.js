@@ -1,7 +1,7 @@
 
 import {useRouteMatch, Switch} from 'react-router-dom';
 
-import {AdminProtectedRoute} from '../../AuthContext';
+import {AdminProtectedRoute} from '../../../AuthContext';
 import Meeting from './Meeting';
 import MeetingForm from './MeetingForm';
 import MeetingsList from './MeetingsList';
