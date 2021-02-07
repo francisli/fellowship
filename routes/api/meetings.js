@@ -17,6 +17,12 @@ router.get('/', async function(req, res) {
       CohortId: req.query.cohortId
     };
   }
+  switch (req.query.include) {
+  case 'link':
+    options.include = models.Link;
+  default:
+    break;
+  }
   const meetings = await models.Meeting.findAll(options);
   res.json(meetings);
 });

@@ -1,0 +1,95 @@
+.meetings {
+  list-style-type: none;
+  padding-left: 0;
+  position: relative;
+
+  &:before {
+    content: '\00a0';
+    display: block;
+    position: absolute;
+    top: 0;
+    left: 48px;    
+    bottom: 0;
+    width: 1px;
+    background-color: lightgray;
+    z-index: -1;
+  }
+}
+
+.meetings__header {
+  background-color: white;
+  margin-top: 2rem;
+  margin-bottom: 1rem;
+  z-index: 100;
+}
+
+.meeting {
+  display: flex;
+  flex-direction: row;
+  margin-bottom: 1rem;
+}
+
+.meeting__icon {
+  background-position: top right;
+  background-repeat: no-repeat;
+  background-size: 32px;
+  border-radius: 16px;
+  box-shadow: 2px 2px 4px rgba(0, 0, 0, .25);
+  margin-left: 32px;
+  margin-right: 16px;
+  width: 32px;
+  height: 32px;
+}
+
+.meeting--design .meeting__icon {
+  background-image: url('./MeetingsC4SF.png');
+}
+
+.meeting--engineering .meeting__icon {
+  background-image: url('./MeetingsUber.png');
+}
+
+.meeting__date {
+  color: gray;
+  margin-top: .25rem;
+}
+
+.meeting__links {
+  list-style-type: none;
+  padding-left: 0;
+}
+
+.link__icon {
+  background-repeat: no-repeat;
+  background-size: 16px;
+  display: inline-block;
+  margin-right: 4px;
+  position: relative;
+  top: 2px;
+  width: 16px;
+  height: 16px;
+}
+
+.link--slides .link__icon {
+  background-image: url('./MeetingsIconSlides.png');  
+}
+
+.link--video .link__icon {
+  background-image: url('./MeetingsIconVideo.png');
+}
+
+.link--other .link__icon {
+  -moz-osx-font-smoothing: grayscale;
+  -webkit-font-smoothing: antialiased;
+  display: inline-block;
+  font-family: 'Font Awesome 5 Free';
+  font-style: normal;
+  font-variant: normal;
+  font-weight: 900;
+  text-rendering: auto;
+  line-height: 1;
+  top: 0;
+  &::before {
+    content: '\f0c1';
+  }
+}

@@ -4,3 +4,12 @@ body {
   font-family: 'Poppins', sans-serif;
   padding-top: 6.375rem;
 }
+
+a {
+  color: rgb(19, 119, 255);
+  text-decoration: none;
+}
+
+a:hover {
+  text-decoration: underline;
+}

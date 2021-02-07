@@ -64,10 +64,13 @@ const Api = {
     }
   },
   meetings: {
-    index(cohortId) {
+    index(cohortId, includeLinks) {
       const params = {};
       if (cohortId) {
         params.cohortId = cohortId;
+      }
+      if (includeLinks) {
+        params.include = 'link';
       }
       return instance.get('/api/meetings', {params});
     },

@@ -20,9 +20,6 @@ function App() {
       <Router>
         <Header />
         <Switch>
-          <Route exact path="/">
-            <Home />
-          </Route>
           <Route path="/login">
             <Login />
           </Route>
@@ -37,6 +34,9 @@ function App() {
           <AdminProtectedRoute path="/admin">
             <Admin />
           </AdminProtectedRoute>
+          <Route path="/">
+            <Home />
+          </Route>
         </Switch>
       </Router>
     </AuthContextProvider>
