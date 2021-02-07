@@ -1,0 +1,23 @@
+[
+  {
+    "model": "Link",
+    "data": {
+      "id": 1,
+      "MeetingId": 1,
+      "position": 1,
+      "type": "SLIDES",
+      "href": "https://via.placeholder.com/150",
+      "desc": "Introductions and Kickoff"
+    }
+  },
+  {
+    "model": "Link",
+    "data": {
+      "id": 2,
+      "MeetingId": 1,
+      "position": 2,
+      "type": "VIDEO",
+      "href": "https://via.placeholder.com/150"
+    }
+  }
+]

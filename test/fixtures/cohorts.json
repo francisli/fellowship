@@ -1,0 +1,13 @@
+[
+  {
+    "model": "Cohort",
+    "data": {
+      "id": 1,
+      "name": "Fellowship 2021",
+      "slug": "fellowship-2021",
+      "startsOn": "2021-01-19",
+      "endsOn": "2021-05-27",
+      "desc": "Dev/Mission Fellowship 2021"
+    }
+  }
+]

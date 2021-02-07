@@ -1,0 +1,13 @@
+[
+  {
+    "model": "Meeting",
+    "data": {
+      "id": 1,
+      "CohortId": 1,
+      "startsAt": "2021-01-19 18:30:00",
+      "endsAt": "2021-01-19 21:00:00",
+      "type": "ENGINEERING",
+      "desc": "Introductions and Kickoff"
+    }
+  }
+]

@@ -2,6 +2,8 @@ import {useEffect} from 'react';
 import {useHistory, Link} from 'react-router-dom';
 
 import Api from './Api';
+import './Header.scss';
+import HeaderLogo from './HeaderLogo.png';
 import {useAuthContext} from './AuthContext';
 
 function Header() {
@@ -29,7 +31,7 @@ function Header() {
   return (
     <nav className="navbar navbar-expand-md navbar-light bg-light fixed-top">
       <div className="container">
-        <Link className="navbar-brand" to="/">Dev/Mission Fellowship</Link>
+        <Link className="navbar-brand" to="/"><img src={HeaderLogo} alt="Dev/Mission Logo" /> Fellowship</Link>
         <button className="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarsExampleDefault" aria-controls="navbarsExampleDefault" aria-expanded="false" aria-label="Toggle navigation">
           <span className="navbar-toggler-icon"></span>
         </button>    
@@ -40,9 +42,16 @@ function Header() {
             </li>
             <div className="flex-grow-1 d-flex justify-content-end">
               {user && (
-                <li className="nav-item">
-                  <a className="nav-link" href="/logout" onClick={onLogout}>Log out</a>
-                </li>)}
+                <>
+                  {user.isAdmin && (
+                    <li className="nav-item">
+                      <Link className="nav-link" to="/admin">Admin</Link>
+                    </li>
+                  )}
+                  <li className="nav-item">
+                    <a className="nav-link" href="/logout" onClick={onLogout}>Log out</a>
+                  </li>
+                </>)}
               {!user && (
                 <li className="nav-item">
                   <Link className="nav-link" to="/login">Log in</Link>
