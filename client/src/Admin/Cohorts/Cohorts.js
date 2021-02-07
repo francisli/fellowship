@@ -16,7 +16,7 @@ function Cohorts() {
       <AdminProtectedRoute path={`${path}/:id/edit`}>
         <CohortForm />
       </AdminProtectedRoute>
-      <AdminProtectedRoute path={`${path}/:id/meetings`}>
+      <AdminProtectedRoute path={`${path}/:cohortId/meetings`}>
         <Meetings />
       </AdminProtectedRoute>
       <AdminProtectedRoute exact path={`${path}/:id`}>

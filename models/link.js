@@ -11,10 +11,10 @@ module.exports = (sequelize, DataTypes) => {
      */
     static associate(models) {
       // define association here
+      Link.belongsTo(models.Meeting);
     }
   };
   Link.init({
-    MeetingId: DataTypes.INTEGER,
     position: DataTypes.INTEGER,
     type: DataTypes.STRING,
     href: DataTypes.STRING,

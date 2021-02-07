@@ -1,5 +1,5 @@
 import {useEffect, useState} from 'react';
-import {useHistory, useLocation, useParams} from 'react-router-dom';
+import {useHistory, useParams} from 'react-router-dom';
 import {StatusCodes} from 'http-status-codes';
 import classNames from 'classnames';
 
@@ -9,9 +9,7 @@ import ValidationError from '../../../ValidationError';
 
 function MeetingForm() {
   const history = useHistory();
-  const {id} = useParams();
-  const query = new URLSearchParams(useLocation().search);
-  const cohortId = query.get('cohortId');
+  const {cohortId, id} = useParams();
   const [error, setError] = useState(null);
   const [meeting, setMeeting] = useState(null);
 
@@ -39,12 +37,14 @@ function MeetingForm() {
     event.preventDefault();
     setError(null);
     try {
-      if (id) {
-        await Api.meetings.update(id, meeting);
+      let meetingId = id;
+      if (meetingId) {
+        await Api.meetings.update(meetingId, meeting);
       } else {
-        await Api.meetings.create(meeting);
+        const response = await Api.meetings.create(meeting);
+        meetingId = response.data.id;
       }
-      history.push(`/admin/cohorts/${meeting.CohortId}/meetings/${meeting.id}`);
+      history.push(`/admin/cohorts/${meeting.CohortId}/meetings/${meetingId}`);
     } catch (error) {
       if (error.response?.status === StatusCodes.UNPROCESSABLE_ENTITY) {
         setError(new ValidationError(error.response.data));

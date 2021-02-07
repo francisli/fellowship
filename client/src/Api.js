@@ -42,6 +42,27 @@ const Api = {
       return instance.patch(`/api/cohorts/${id}`, data);
     }
   },
+  links: {
+    index(meetingId) {
+      const params = {};
+      if (meetingId) {
+        params.meetingId = meetingId;
+      }
+      return instance.get('/api/links', {params});
+    },
+    create(data) {
+      return instance.post('/api/links', data);
+    },
+    get(id) {
+      return instance.get(`/api/links/${id}`);
+    },
+    update(id, data) {
+      return instance.patch(`/api/links/${id}`, data);
+    },
+    delete(id) {
+      return instance.delete(`/api/links/${id}`);
+    }
+  },
   meetings: {
     index(cohortId) {
       const params = {};

@@ -11,10 +11,11 @@ module.exports = (sequelize, DataTypes) => {
      */
     static associate(models) {
       // define association here
+      Meeting.belongsTo(models.Cohort);
+      Meeting.hasMany(models.Link);
     }
   };
   Meeting.init({
-    CohortId: DataTypes.INTEGER,
     startsAt: DataTypes.DATE,
     endsAt: DataTypes.DATE,
     type: DataTypes.STRING,

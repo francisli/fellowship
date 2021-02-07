@@ -4,6 +4,7 @@ import {useRouteMatch, Switch} from 'react-router-dom';
 import {AdminProtectedRoute} from '../../../AuthContext';
 import Meeting from './Meeting';
 import MeetingForm from './MeetingForm';
+import MeetingLinkForm from './MeetingLinkForm';
 import MeetingsList from './MeetingsList';
 
 function Meetings() {
@@ -15,6 +16,12 @@ function Meetings() {
       </AdminProtectedRoute>
       <AdminProtectedRoute path={`${path}/:id/edit`}>
         <MeetingForm />
+      </AdminProtectedRoute>
+      <AdminProtectedRoute path={`${path}/:meetingId/links/new`}>
+        <MeetingLinkForm />
+      </AdminProtectedRoute>
+      <AdminProtectedRoute path={`${path}/:meetingId/links/:id/edit`}>
+        <MeetingLinkForm />
       </AdminProtectedRoute>
       <AdminProtectedRoute path={`${path}/:id`}>
         <Meeting />
