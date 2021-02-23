@@ -8,6 +8,7 @@ import './App.scss';
 
 import Admin from './Admin';
 import {AuthContextProvider, AdminProtectedRoute} from './AuthContext';
+import Footer from './Footer';
 import Header from './Header';
 import Home from './Home';
 import Login from './Login';
@@ -38,6 +39,7 @@ function App() {
             <Home />
           </Route>
         </Switch>
+        <Footer />
       </Router>
     </AuthContextProvider>
   );
