@@ -10,7 +10,7 @@ const router = express.Router();
 
 router.get('/', async function(req, res) {
   const options = {
-    order: [['startsAt', 'ASC']]
+    order: [['startsAt', 'DESC']]
   };
   if (req.query.cohortId) {
     options.where = {

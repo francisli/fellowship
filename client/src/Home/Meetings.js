@@ -15,11 +15,11 @@ function Meetings({cohortId, cohortStartsOn}) {
 
   const meetingsListItems = [];
   const cohortStartDate = DateTime.fromISO(cohortStartsOn);
-  let weekNumber = 0;
+  let weekNumber = Number.MAX_SAFE_INTEGER;
   for (const m of meetings) {
     const meetingDate = DateTime.fromISO(m.startsAt);
     const meetingWeekNumber = meetingDate.weekNumber - cohortStartDate.weekNumber + 1;
-    if (meetingWeekNumber > weekNumber) {
+    if (meetingWeekNumber < weekNumber) {
       meetingsListItems.push(<h5 key={`week-${meetingWeekNumber}`} className="meetings__header">&lt; Week {meetingWeekNumber} &gt;</h5>);
       weekNumber = meetingWeekNumber;
     }
